@@ -1,0 +1,16 @@
+package com.antunesamaral.matrixcalculator.exceptions;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+public class CsvReadException extends RuntimeException {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CsvReadException.class);
+
+    public CsvReadException(String message) {
+        super(message);
+        LOGGER.error(message);
+    }
+}
